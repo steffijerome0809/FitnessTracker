@@ -144,9 +144,9 @@ form::after {
   display: flex;
 }
 
-/* .exercise .buttons button {
+.exercise .buttons button {
   width: 100%;
-} */
+}
 
 /* button {
   display: block;
@@ -408,12 +408,14 @@ label {
   width: 50%;
   font-size: x-large;
   background-color: blueviolet;
+  cursor: pointer;
 }
 .buttons .ui.button2 {
   margin: 0;
   width: 50%;
   font-size: x-large;
   background-color: rgb(61, 43, 226);
+  cursor: pointer;
 }
 
 .ui.card h2 {
