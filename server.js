@@ -1,21 +1,19 @@
-//install packages
 const express = require('express');
 const logger = require('morgan');
 const mongoose = require('mongoose');
-//set port
-const PORT = process.env.PORT || 3000;
+const apiRoutes = require('./routes/apiRoutes');
+const htmlRoutes = require('./routes/htmlRoutes');
 
+const PORT = process.env.PORT || 8000;
+// const db = require('./models');
 const app = express();
+// middleware
+// app.use(logger('dev'));
 
-//use logger
-app.use(logger('dev'));
-
-//parser
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-//use static files
-app.use(express.static('public'));
+app.use(express.static('./public'));
 
 let MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/workout';
 mongoose.connect(MONGODB_URI, {
@@ -23,12 +21,10 @@ mongoose.connect(MONGODB_URI, {
   useFindAndModify: false,
 });
 
-//require('./seeders/seed')
-
-//use routes
-require('./routes/api-routes')(app);
-require('./routes/html-routes')(app);
+// set up routes
+app.use('/api', apiRoutes);
+app.use('/', htmlRoutes);
 
 app.listen(PORT, () => {
-  console.log(`App running on port ${PORT}..`);
+  console.log(`App running on port ${PORT}!`);
 });
