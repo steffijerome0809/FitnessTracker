@@ -15,8 +15,8 @@ Installation
 If running from the console - use npm install to install all needed dependencies and npm run seed to seed the database.
 
 Demo :
-![picture](./public/images/img2.png)
+![picture](./public/images/img2.PNG)
 
-![picture](./public/images/img3.png)
+![picture](./public/images/img3.PNG)
 
-![picture](./public/images/img1.png)
+![picture](./public/images/img1.PNG)
